@@ -1,1 +1,3 @@
-alert(`Test page`);
+setTimeout(function () {
+  alert(`Test page`);
+}, 100);
