@@ -109,11 +109,14 @@ new Calendar (getSetupObject()); // создать календарь
 
 function addTextInPre(obj) { // запись кода в блок
   let pre = document.querySelector(`#code>pre`);
-  pre.innerText = `<script type="text/javascript" src="https://syarmolenka.github.io/calendar.js"></script>
+  pre.innerText = `<script src="https://syarmolenka.github.io/calendar.js"></script>
   <script>
     (function() {
       let id = 'calendar' + Math.round(Math.random()*1000000);
       document.write('<div id="'+id+'"></div');
+      let link = document.createElement('link');
+      link.setAttribute('href', 'https://syarmolenka.github.io/style.css');
+      document.head.appendChild(link);
       new Calendar({
         el: '#'+id,
         showMonth: ${obj.showMonth},
