@@ -115,7 +115,8 @@ function addTextInPre(obj) { // запись кода в блок
       let id = 'calendar' + Math.round(Math.random()*1000000);
       document.write('<div id="'+id+'"></div');
       let link = document.createElement('link');
-      link.setAttribute('href', 'https://syarmolenka.github.io/style.css');
+      link.setAttribute('rel', "stylesheet");
+      link.setAttribute('href', "https://syarmolenka.github.io/style.css");
       document.head.appendChild(link);
       new Calendar({
         el: '#'+id,
