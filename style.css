@@ -42,3 +42,7 @@ table {
   height:16px;
   line-height: 0.9em;
 }
+.comment {
+  position: fixed;
+  left: 100px;
+}
