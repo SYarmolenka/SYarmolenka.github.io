@@ -109,7 +109,7 @@ new Calendar (getSetupObject()); // создать календарь
 
 function addTextInPre(obj) { // запись кода в блок
   let pre = document.querySelector(`#code>pre`);
-  pre.innerText = `<script type="text/javascript" src="calendar.js"></script>
+  pre.innerText = `<script type="text/javascript" src="https://syarmolenka.github.io/calendar.js"></script>
   <script>
     (function() {
       let id = 'calendar' + Math.round(Math.random()*1000000);
