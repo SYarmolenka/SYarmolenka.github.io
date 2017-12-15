@@ -12,7 +12,6 @@ function pasteMonthsInSelect(selectElement) { // вставть options в selec
     let date = obj.date.split(`,`);
     def = date[1];
   } else {def = new Date().getMonth() + 1} // или текущий месяц
-  console.log(def);
   for (let i = 1; i < 13; i++) {
     let option = document.createElement(`option`);
     month = new Date(0, i).toLocaleString(`ru`, {
