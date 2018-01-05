@@ -33,14 +33,14 @@ function getThroughFetch (url, bell) {
 }
 
 function requestWeather () {
-  let url = `https://cors-anywhere.herokuapp.com/api.darksky.net/forecast/0fbec31d64e8fba6637a108f151904ad/${stage.coords[0]},${stage.coords[1]}?lang=ru&units=si`;
+  let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/0fbec31d64e8fba6637a108f151904ad/${stage.coords[0]},${stage.coords[1]}?lang=ru&units=si`;
   if (stage.request === `XHR`) getThroughXhr (url, `weather`);
   if (stage.request === `fetch`) getThroughFetch (url, `weather`);
 }
 eb.on(`weather`, getWeather);
 
 function getWeather (respone) {
-  let obj = JSON.parse(JSON.parse(respone).body);
+  let obj = JSON.parse(respone);
   let i = obj.hourly.data.findIndex(function (obj) {
     return obj.time >= Date.now() / 1000;
   });
@@ -59,7 +59,6 @@ eb.on(`city`, getCityName);
 
 function getCityName (respone) {
   let obj = JSON.parse(respone);
-  console.log(obj);
   stage.city = (obj.status !== `OK`) ? `None` : obj.results[0].address_components[0].long_name;
   let div = document.querySelector(`#weather`).children[0];
   div.innerText = `Населенный пункт: ${stage.city}\n`;

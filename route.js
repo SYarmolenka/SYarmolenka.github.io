@@ -54,7 +54,6 @@ let route = {
   }
 };
 let allHideElem =document.querySelectorAll(`.hide`);
-console.log(allHideElem);
 let about = document.querySelector(`.about`);
 let author = document.querySelector(`.author`);
 route.routes = [
