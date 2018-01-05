@@ -32,15 +32,21 @@ function getThroughFetch (url, bell) {
   });
 }
 
+function doRequest () {
+  if (stage.request === `XHR`) getThroughXhr.apply(this, arguments);
+  if (stage.request === `fetch`) getThroughFetch.apply(this, arguments);
+}
+
 function requestWeather () {
   let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/0fbec31d64e8fba6637a108f151904ad/${stage.coords[0]},${stage.coords[1]}?lang=ru&units=si`;
-  if (stage.request === `XHR`) getThroughXhr (url, `weather`);
-  if (stage.request === `fetch`) getThroughFetch (url, `weather`);
+  // let url = `http://cors-proxy.htmldriven.com/?url=https://api.darksky.net/forecast/0fbec31d64e8fba6637a108f151904ad/${stage.coords[0]},${stage.coords[1]}?lang=ru%26units=si`;
+  doRequest (url, `weather`);
 }
 eb.on(`weather`, getWeather);
 
 function getWeather (respone) {
   let obj = JSON.parse(respone);
+  // let obj = JSON.parse(JSON.parse(respone).body);
   let i = obj.hourly.data.findIndex(function (obj) {
     return obj.time >= Date.now() / 1000;
   });
@@ -52,8 +58,7 @@ function getWeather (respone) {
 
 function requestCityName () {
   let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${stage.coords[0]+0.001},${stage.coords[1]+0.001}&result_type=locality&key=AIzaSyBFl2Chh3nLWZ-bVlsSPiH_Q1o7f1x6cpg`;
-  if (stage.request === `XHR`) getThroughXhr (url, `city`);
-  if (stage.request === `fetch`) getThroughFetch (url, `city`);
+  doRequest(url, `city`);
 }
 eb.on(`city`, getCityName);
 
@@ -66,8 +71,7 @@ function getCityName (respone) {
 
 function requestCoords (city) {
   let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyBFl2Chh3nLWZ-bVlsSPiH_Q1o7f1x6cpg`;
-  if (stage.request === `XHR`) getThroughXhr (url, `coords`);
-  if (stage.request === `fetch`) getThroughFetch (url, `coords`);
+  doRequest (url, `coords`);
 }
 eb.on(`coords`, getCoords);
 
