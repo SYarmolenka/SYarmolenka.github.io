@@ -33,7 +33,7 @@ function getThroughFetch (url, bell) {
 }
 
 function requestWeather () {
-  let url = `http://cors-proxy.htmldriven.com/?url=https://api.darksky.net/forecast/0fbec31d64e8fba6637a108f151904ad/${stage.coords[0]},${stage.coords[1]}?lang=ru%26units=si`;
+  let url = `https://cors-anywhere.herokuapp.com/api.darksky.net/forecast/0fbec31d64e8fba6637a108f151904ad/${stage.coords[0]},${stage.coords[1]}?lang=ru&units=si`;
   if (stage.request === `XHR`) getThroughXhr (url, `weather`);
   if (stage.request === `fetch`) getThroughFetch (url, `weather`);
 }
