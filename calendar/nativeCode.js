@@ -137,9 +137,3 @@ class Calendar {
     };
   };
 };
-
-function drawInteractiveCalendar(data) {
-  new Calendar(data);
-};
-
-export {Calendar as natCalendar};
