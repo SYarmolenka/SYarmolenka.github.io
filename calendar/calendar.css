@@ -1,47 +1,47 @@
-.Calender {
+div>.Calendar {
   padding: 1em;
   font: 16pt sans-serif;
 }
-.Calender table {
+.Calendar {
   margin: 0 5%;
   width: 90%;
   border-collapse: collapse;
   table-layout: fixed;
 }
-.Calender td, .Calender th {
+.Calendar td, .Calendar th {
   height: 5rem;
   border-radius: .2em;
 }
-.Calender .pointer {
+.Calendar .pointer {
   cursor: pointer;
 }
-.Calender td {
+.Calendar td {
   vertical-align: top;
   padding: 1%;
   overflow: hidden;
 }
-.Calender thead tr:nth-child(odd)  {
+.Calendar thead tr:nth-child(odd)  {
   background: #EBE9FE;
 }
-.Calender thead tr:nth-child(odd) th:nth-child(odd)  {
+.Calendar thead tr:nth-child(odd) th:nth-child(odd)  {
   background: #DEDCF1;
 }
-.Calender thead tr:nth-child(even)  {
+.Calendar thead tr:nth-child(even)  {
   background: #ccc;
 }
-.Calender thead tr:nth-child(even) th:nth-child(6n), .Calender thead tr:nth-child(even) th:nth-child(7n) {
+.Calendar thead tr:nth-child(even) th:nth-child(6n), .Calendar thead tr:nth-child(even) th:nth-child(7n) {
   background: #ffdcdc;
 }
-.Calender tr:nth-child(even)>td:nth-child(2n+1), .Calender tr:nth-child(odd)>td:nth-child(2n+2) {
+.Calendar tr:nth-child(even)>td:nth-child(2n+1), .Calendar tr:nth-child(odd)>td:nth-child(2n+2) {
   background: #e5e3f8;
 }
-.Calender tr:nth-child(odd)>td:nth-child(2n+1), .Calender tr:nth-child(even)>td:nth-child(2n+2) {
+.Calendar tr:nth-child(odd)>td:nth-child(2n+1), .Calendar tr:nth-child(even)>td:nth-child(2n+2) {
   background: #f5f5f5;
 }
-.Calender tr:nth-child(even)>td:nth-child(6n), .Calender tr:nth-child(odd)>td:nth-child(7n) {
+.Calendar tr:nth-child(even)>td:nth-child(6n), .Calendar tr:nth-child(odd)>td:nth-child(7n) {
   background: #fff0f0;
 }
-.Calender tr:nth-child(odd)>td:nth-child(6n), .Calender tr:nth-child(even)>td:nth-child(7n) {
+.Calendar tr:nth-child(odd)>td:nth-child(6n), .Calendar tr:nth-child(even)>td:nth-child(7n) {
   background: #fff5f5;
 }
 .delTask {
