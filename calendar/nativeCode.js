@@ -137,5 +137,3 @@ class Calendar {
     };
   };
 };
-
-export {Calendar};
