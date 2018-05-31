@@ -1,6 +1,6 @@
 function drawCalendar(year, month, htmlEl) {
   if (htmlEl.querySelector(`.Calendar`)) {htmlEl.removeChild(htmlEl.querySelector(`.Calendar`))};
-  const weekdays = new Array(7).fill(1).map((e, i) => (`<th>${new Date(2018, 2, 12 + i).toLocaleString('ru', {weekday: 'short'}).toUpperCase()}</th>`));
+  const weekdays = new Array(7).fill(1).map((e, i) => (`<th>${new Date(2018, 2, 12 + i).toLocaleString('en', {weekday: 'short'}).toUpperCase()}</th>`));
   let firstDay = new Date(year, month - 1).getDay() - 1;
   firstDay = firstDay < 0 ? 6 : firstDay;
   const emptyBefore = new Array(firstDay).fill(`<td></td>`);
@@ -53,7 +53,7 @@ class Calendar {
             if (td.innerHTML && td.innerHTML.match(/\w+/)[0] === day) {
               data[key].forEach((task, i) => {
                 const div = document.createElement('div');
-                div.innerHTML = `<img src="https://cdn.icon-icons.com/icons2/937/PNG/512/Delete_icon-icons.com_73707.png" class="delTask"><div class="task">${data[key][i]}</div>`;
+                div.innerHTML = `<img src="https://syarmolenka.github.io/calendar/delete.png" class="delTask"><div class="task">${data[key][i]}</div>`;
                 td.appendChild(div);
               });
             };
@@ -63,7 +63,7 @@ class Calendar {
     });
   };
   addHead () {
-    const monthName = this.config.showDate ? `${new Date(this.year, this.month - 1).toLocaleString(`ru`, {month: 'long'}).toUpperCase()} / ${this.year}` : '';
+    const monthName = this.config.showDate ? `${new Date(this.year, this.month - 1).toLocaleString(`en`, {month: 'long'}).toUpperCase()} / ${this.year}` : '';
     if (this.config.showDate && this.config.changeMonth) this.table.querySelector('thead').innerHTML = `<th class='prev pointer'>&#8656</th><th colspan='5'>${monthName}</th><th class='next pointer'>&#8658</th>${this.table.querySelector('thead').innerHTML}`;
     if (this.config.showDate && !this.config.changeMonth) this.table.querySelector('thead').innerHTML = `<th colspan='7'>${monthName}</th>${this.table.querySelector('thead').innerHTML}`;
     if (!this.config.showDate && this.config.changeMonth) this.table.querySelector('thead').innerHTML = `<th class='prev pointer' colspan='3'>&#8656</th><th></th><th class='next pointer' colspan='3'>&#8658</th>${this.table.querySelector('thead').innerHTML}`;
@@ -137,3 +137,5 @@ class Calendar {
     };
   };
 };
+
+export {Calendar};
