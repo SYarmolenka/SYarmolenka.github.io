@@ -53,7 +53,7 @@ class Calendar {
             if (td.innerHTML && td.innerHTML.match(/\w+/)[0] === day) {
               data[key].forEach((task, i) => {
                 const div = document.createElement('div');
-                div.innerHTML = `<img src="https://syarmolenka.github.io/calendar/delete.png" class="delTask"><div class="task">${data[key][i]}</div>`;
+                div.innerHTML = this.config.removeTask ? `<img src="https://syarmolenka.github.io/calendar/delete.png" class="delTask"><div class="task">${data[key][i]}</div>` : `<div class="task">${data[key][i]}</div>`;
                 td.appendChild(div);
               });
             };
@@ -137,3 +137,5 @@ class Calendar {
     };
   };
 };
+
+export {Calendar};
