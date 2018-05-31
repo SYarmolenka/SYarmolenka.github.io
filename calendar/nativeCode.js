@@ -63,7 +63,7 @@ class Calendar {
     });
   };
   addHead () {
-    const monthName = this.config.showDate ? `${new Date(this.year, this.month - 1).toLocaleString(`en`, {month: 'long'}).toUpperCase()} / ${this.year}` : '';
+    const monthName = this.config.showDate ? `${new Date(this.year, this.month - 1, 5).toLocaleString(`en`, {month: 'long'}).toUpperCase()} / ${this.year}` : '';
     if (this.config.showDate && this.config.changeMonth) this.table.querySelector('thead').innerHTML = `<th class='prev pointer'>&#8656</th><th colspan='5'>${monthName}</th><th class='next pointer'>&#8658</th>${this.table.querySelector('thead').innerHTML}`;
     if (this.config.showDate && !this.config.changeMonth) this.table.querySelector('thead').innerHTML = `<th colspan='7'>${monthName}</th>${this.table.querySelector('thead').innerHTML}`;
     if (!this.config.showDate && this.config.changeMonth) this.table.querySelector('thead').innerHTML = `<th class='prev pointer' colspan='3'>&#8656</th><th></th><th class='next pointer' colspan='3'>&#8658</th>${this.table.querySelector('thead').innerHTML}`;
