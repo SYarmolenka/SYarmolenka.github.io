@@ -1,8 +1,6 @@
 .Calendar {
-  padding: 1em;
+	padding: 1em;
   font: 16pt sans-serif;
-}
-.Calendar table {
   margin: 0 5%;
   width: 90%;
   border-collapse: collapse;
